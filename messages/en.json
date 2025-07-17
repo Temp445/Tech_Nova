@@ -1,0 +1,13 @@
+{
+    "Hero":{
+        "Title": "Grow Your Business with Professional Websites",
+        "Des": "We create fast, responsive websites that fit your business built to scale and designed to impress.",
+        "ProductList" : "Product List",
+        "button": "Web Design"
+    },
+    "Products":{
+        "Title1": "Web Design",
+        "Back": "Back to Products",
+        "Service": "Service"
+    }
+}
