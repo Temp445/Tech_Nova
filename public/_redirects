@@ -1,2 +1,2 @@
-
-/aceppap/*  /.netlify/edge-functions/product1  200
+/aceppap/*     /.netlify/edge-functions/aceppap-proxy  200
+/_next/*       /.netlify/edge-functions/aceppap-proxy  200
