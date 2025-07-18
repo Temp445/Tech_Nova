@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@netlify/edge-functions": "^2.15.8",
     "@netlify/plugin-nextjs": "^5.11.6",
     "axios": "^1.10.0",
     "mongoose": "^8.16.3",
