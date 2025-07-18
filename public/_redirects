@@ -1,2 +1,3 @@
-/aceppap/*     /.netlify/edge-functions/aceppap-proxy  200
-/_next/*       /.netlify/edge-functions/aceppap-proxy  200
+/aceppap/*     /.netlify/edge-functions/project1  200
+/aceppap/api/*     /.netlify/edge-functions/project1  200
+/_next/*       /.netlify/edge-functions/project1  200
