@@ -5,3 +5,9 @@ publish = ".next"
 
 [[plugins]]
 package = "@netlify/plugin-nextjs"
+
+[[redirects]]
+  from = "/web/*"
+  to = "https://product1-site.netlify.app" # REPLACE with your actual blog's Netlify URL
+  status = 200
+  force = true

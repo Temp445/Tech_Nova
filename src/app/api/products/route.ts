@@ -3,19 +3,15 @@ import dbConnect from '@/lib/mongoose';
 import Product from '@/models/Product';
 
 export async function GET() {
-try {
-  await dbConnect();
+  try {
+    await dbConnect();
+    const products = await Product.find();
+    return NextResponse.json(products);
+  } catch (error) {
+    return NextResponse.json({ error: 'Failed to fetch products' }, { status: 500 });
+  }
+}
 
-  const products = await Product.find({});
-  return NextResponse.json(products);
-} catch (error: any) {
-  console.error("API ERROR:", error);
-  return NextResponse.json(
-    { error: "Internal Server Error", details: error.message },
-    { status: 500 }
-  );
-}
-}
 
 export async function POST(req: NextRequest) {
   try {

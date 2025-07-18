@@ -7,8 +7,8 @@ export default async function dbConnect() {
     if (mongoose.connection.readyState >= 1) return;
 
     await mongoose.connect(MONGODB_URI);
-    console.log('✅ MongoDB connected');
+    console.log('MongoDB connected');
   } catch (error) {
-    console.error('❌ MongoDB connection error:', error);
+    console.error('MongoDB connection error:', error);
   }
 }
