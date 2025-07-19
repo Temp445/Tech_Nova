@@ -2,7 +2,7 @@ export default async (request: Request) => {
   const url = new URL(request.url);
 
   const targetPath = url.pathname.replace(/^\/blog/, ''); 
-  const targetUrl = `https://project2-site.netlify.app/blog/${targetPath}${url.search}`;
+  const targetUrl = `https://project2-site.netlify.app${targetPath}${url.search}`;
 
   return fetch(targetUrl, {
     method: request.method,
