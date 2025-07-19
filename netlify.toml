@@ -8,5 +8,5 @@ package = "@netlify/plugin-nextjs"
 
 
 [[edge_functions]]
-function = "blog"
-path = "/blog/*"
+function = "redirect"
+path = "/web-development/*"
