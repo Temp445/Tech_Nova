@@ -45,7 +45,7 @@ const Products = () => {
          {product.link ? (
         <Link href={`/products/${product._id}`} className="text-xl font-semibold mt-4">{translate(product.name)}</Link>
          ): (
-        <Link href={`/aceppap/${locale}`} className="text-xl font-semibold mt-4">{translate(product.name)}</Link>
+        <Link href={`/blog/`} className="text-xl font-semibold mt-4">{translate(product.name)}</Link>
          )}
 
       </div>
