@@ -2,9 +2,9 @@
 
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import Link from 'next/link';
 import { useTranslations } from 'next-intl';
 import { useLocale } from 'next-intl';
+import { Link } from '@/i18n/navigation';
 
 interface LocalizedString {
   en: string;
@@ -45,7 +45,7 @@ const Products = () => {
          {product.link ? (
         <Link href={`/products/${product._id}`} className="text-xl font-semibold mt-4">{translate(product.name)}</Link>
          ): (
-        <Link href={`/web-development/`} className="text-xl font-semibold mt-4">{translate(product.name)}</Link>
+        <Link href="/web-development" className="text-xl font-semibold mt-4">{translate(product.name)}</Link>
          )}
 
       </div>
