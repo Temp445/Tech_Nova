@@ -38,6 +38,16 @@ export default async function RootLayout({
   }
   return (
       <html lang={locale}>
+        <head>
+          <link
+  rel="preload"
+  href="/web-development/_next/static/media/93f479601ee12b01-s.p.woff2"
+  as="font"
+  type="font/woff2"
+  crossOrigin="anonymous"
+/>
+
+        </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
