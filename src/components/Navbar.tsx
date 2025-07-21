@@ -3,16 +3,24 @@
 import { FC } from 'react';
 import { usePathname } from 'next/navigation';
 import { useLocale } from 'next-intl';
-import { Link } from '@/i18n/navigation';
+import { setCookie } from 'cookies-next';
+import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 
 const Navbar: FC = () => {
   const pathname = usePathname();
   const currentLocale = useLocale();
+  const router = useRouter();
 
   const languages = [
     { code: 'en', label: 'English' },
     { code: 'hi', label: 'हिन्दी' },
   ];
+
+  const handleLocaleChange = (locale: string) => {
+    setCookie('NEXT_LOCALE', locale, { path: '/' });
+    router.refresh(); // Refresh the route to apply the new locale
+  };
 
   return (
     <header className="bg-white w-full z-[20]">
@@ -23,10 +31,9 @@ const Navbar: FC = () => {
 
         <div className="flex gap-4">
           {languages.map((lang) => (
-            <Link
+            <button
               key={lang.code}
-              href={pathname}
-              locale={lang.code}
+              onClick={() => handleLocaleChange(lang.code)}
               className={`px-3 py-1 text-sm rounded-md transition ${
                 currentLocale === lang.code
                   ? 'bg-blue-100 text-blue-600 font-semibold'
@@ -34,7 +41,7 @@ const Navbar: FC = () => {
               }`}
             >
               {lang.label}
-            </Link>
+            </button>
           ))}
         </div>
       </nav>
