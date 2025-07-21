@@ -6,7 +6,4 @@
   "deno.unstable": true,
   "deno.importMap": ".netlify/edge-functions-import-map.json",
   
-  "files.associations": {
-    "_redirects": "plaintext"
-  }
 }

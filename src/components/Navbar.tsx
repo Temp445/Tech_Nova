@@ -1,14 +1,12 @@
 'use client';
 
 import { FC } from 'react';
-import { usePathname } from 'next/navigation';
 import { useLocale } from 'next-intl';
 import { setCookie } from 'cookies-next';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 
 const Navbar: FC = () => {
-  const pathname = usePathname();
   const currentLocale = useLocale();
   const router = useRouter();
 
@@ -19,7 +17,7 @@ const Navbar: FC = () => {
 
   const handleLocaleChange = (locale: string) => {
     setCookie('NEXT_LOCALE', locale, { path: '/' });
-    router.refresh(); // Refresh the route to apply the new locale
+    router.refresh();
   };
 
   return (
