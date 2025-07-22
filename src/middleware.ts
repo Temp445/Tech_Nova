@@ -14,7 +14,8 @@ const keywordRedirectMap: Record<string, string> = {
 // Step 3: Known paths that should never be redirected
 const knownPaths = new Set([
   '/',
-  '/products'
+  '/products',
+  '/web-development'
 ]);
 
 // Helper: should skip based on static file or API
