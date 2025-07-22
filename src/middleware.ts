@@ -10,14 +10,30 @@ const allowedRegions = [
 const intlMiddleware = createIntlMiddleware(routing);
 
 const keywordRedirectMap: Record<string, string> = {
-  'design': '/products/68789b738e88e69dea3a892f',
-  'web-design': '/products/68789b738e88e69dea3a892f',
+    'calibration': 'https://home.acecms.in', // '/products/v1/ace-calibration-management-system-on-cloud',
+  'acecms': 'https://home.acecms.in',
+  'cms': 'https://home.acecms.in',
+  // 'project': 'https://project.acesoftcloud.in',
+  // 'crm': 'https://crm.acesoftcloud.in',
+  'production-management-system': '/ace-production-management-system',
+  'payroll': '/ace-profit-stand-alone-payroll',
+  'ppap': '/ace-profit-ppap',
+  'fixed-asset-management': '/ace-fixed-asset-management-on-cloud',
+  'hrms': '/ace-profit-stand-alone-hrms',
+  'erp': '/ace-profit-erp',
 };
 
 const knownPaths = new Set([
   '/',
   '/products',
-  '/web-development',
+  '/request_callback',
+  '/contact',
+  '/about',
+  '/admin',
+  '/admin/upload',
+  '/login',
+  '/user',
+  '/videos',
 ]);
 
 function isSkippable(pathname: string): boolean {
@@ -38,7 +54,7 @@ function getRedirectFromKeyword(pathname: string): string | null {
 }
 
 function stripLocale(pathname: string): string {
-  const localePattern = /^\/(en|hi)(\/|$)/;
+  const localePattern = /^\/(en|hi|be|br|de|fr|es|it|ru|zh|ja|kr)(\/|$)/;
   return pathname.replace(localePattern, '/');
 }
 
@@ -71,7 +87,9 @@ export function middleware(request: NextRequest) {
   }
 
   const basePath = stripLocale(pathname);
-  if (knownPaths.has(basePath) || pathname.startsWith('/products/') || pathname.startsWith('/web-development/')) {
+  // if (knownPaths.has(basePath) || pathname.startsWith('/products/') || pathname.startsWith('/web-development/')) 
+  if (knownPaths.has(basePath) || pathname.startsWith('/products/')|| pathname.startsWith('/admin/edit/')|| pathname.startsWith('/demo/')|| pathname.startsWith('/request_callback/') ||  pathname.startsWith('/web-development/') )
+    {
     return response || NextResponse.next();
   }
 
