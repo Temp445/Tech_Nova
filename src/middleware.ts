@@ -18,7 +18,7 @@ const knownPaths = new Set([
   '/',
   '/products',
   '/web-development',
-  '/features'
+  '/features/'
 ]);
 
 function isSkippable(pathname: string): boolean {
