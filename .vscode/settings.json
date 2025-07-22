@@ -5,5 +5,5 @@
   ],
   "deno.unstable": true,
   "deno.importMap": ".netlify/edge-functions-import-map.json",
-  
+  "deno.path": "C:\\Users\\Nivin\\AppData\\Roaming\\netlify\\Config\\deno-cli\\deno.exe"
 }
