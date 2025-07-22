@@ -72,7 +72,7 @@ export function middleware(request: NextRequest) {
   }
 
   const basePath = stripLocale(pathname);
-  if (knownPaths.has(basePath) || pathname.startsWith('/products/') || pathname.startsWith('/features/')) {
+  if (knownPaths.has(basePath) || pathname.startsWith('/products/')   || pathname.startsWith('/web-development/') || pathname.startsWith('/features/')) {
     return response || NextResponse.next();
   }
 
