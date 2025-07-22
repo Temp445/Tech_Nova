@@ -43,7 +43,7 @@ function stripLocale(pathname: string): string {
   return pathname.replace(localePattern, '/');
 }
 
-// ✅ NEW: Remove any region segment from the full path
+// Remove any region segment from the full path
 function removeRegionFromPath(pathname: string): string | null {
   const parts = pathname.split('/').filter(Boolean);
   const filtered = parts.filter(part => !allowedRegions.includes(part));
@@ -63,17 +63,16 @@ export function middleware(request: NextRequest) {
     return response || NextResponse.next();
   }
 
-  // ✅ Strip region from any part of the path
+  // Strip region from any part of the path
   const cleanedPath = removeRegionFromPath(pathname);
   if (cleanedPath !== null && cleanedPath !== pathname) {
-    console.log(`[middleware] Region slug removed. Redirecting to: ${cleanedPath}`);
     const url = request.nextUrl.clone();
     url.pathname = cleanedPath || '/';
     return NextResponse.redirect(url);
   }
 
   const basePath = stripLocale(pathname);
-  if (knownPaths.has(basePath) || pathname.startsWith('/products/')) {
+  if (knownPaths.has(basePath) || pathname.startsWith('/products/') || pathname.startsWith('/features/')) {
     return response || NextResponse.next();
   }
 
@@ -83,7 +82,7 @@ export function middleware(request: NextRequest) {
     return NextResponse.redirect(new URL(redirectTo, request.url));
   }
 
-  console.log('[middleware] Unknown path. Redirecting to /');
+  // Unknown path. Redirecting to /
   return NextResponse.redirect(new URL('/', request.url));
 }
 
