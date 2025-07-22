@@ -18,7 +18,6 @@ const knownPaths = new Set([
   '/',
   '/products',
   '/web-development',
-  '/features/'
 ]);
 
 function isSkippable(pathname: string): boolean {
@@ -72,7 +71,7 @@ export function middleware(request: NextRequest) {
   }
 
   const basePath = stripLocale(pathname);
-  if (knownPaths.has(basePath) || pathname.startsWith('/products/')   || pathname.startsWith('/web-development/') || pathname.startsWith('/features/')) {
+  if (knownPaths.has(basePath) || pathname.startsWith('/products/') || pathname.startsWith('/web-development/')) {
     return response || NextResponse.next();
   }
 
